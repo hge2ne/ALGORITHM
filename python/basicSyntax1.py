@@ -135,7 +135,7 @@ big_number = 1.23e9
 
 # Sequence Types 시퀀스 타입
 # 여러 값을 순서대로 나열해서 저장
-# ex. str, tuple, list, range
+# ex. tuple, list, range (****string 은 시퀀스 타입 아님)
 ### 각 데이터는 기차칸처럼 인덱싱
 # 모든 칸에 0부터 시작하는 고유번호(인덱스) 있음
 # 인덱스로 원하는 칸 데이터에 바로 접근 가능
