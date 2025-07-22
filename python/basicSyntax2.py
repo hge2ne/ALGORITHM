@@ -17,7 +17,8 @@
  set 은 중복 제거하고 생성됨, 순서 x
  , list는 중복 허용, 순서o
 
- 딕셔너리 : 키 밸류 쌍
+ <dict 개념>
+ : 키 밸류 쌍 구성
  (1) key 사용특징 ? : immutable 이뮤터블 ; 변경불가 자료형만 사용 가능
  ex. str,int,tuple
  key 값 바뀌면 안됨
@@ -27,11 +28,14 @@
 
  
  <중첩 리스트 list>
+
 : 리스트 안에 리스트 포함
+
 (1) 얕은 복사
 copy()
 (주소만 같음) 같은 방향 가리킴
 객체를 복사하지않음
+
 (2) 깊은 복사
 import copy 하고
 l4 = copy.deepcopy(l1)
@@ -40,7 +44,7 @@ l4 = copy.deepcopy(l1)
 
 (3) 복사 x
 
-?
+복사 여부 확인 하단 참고
 
 '''
 l1 = [1, 2, 3, [4, 5, 6]] 
@@ -62,20 +66,35 @@ l4 = copy.deepcopy
 id(l4)
 # 마저 필기해야함
 
-# list 개념
-"""
+# < list[] 개념 >
+'''
 : 여러 값을 순서대로 저장. 
- 변경 가능 (시퀸스 자료형)
+ 변경 가능 (시퀸스 자료형), 순서 ㅇ
  대괄호 사용 [ ]
+ 중첩 가능(list 안에 list)
 
-"""
+'''
 my_list_1 = []
 my_list_2 = [1, 'a', 3, 'b', 5]
 my_list_3 = [1, 2, 3, 'python']
-'''
 
 '''
+list 는 시퀀스 : 인덱싱, 슬라이싱, 길이 확인, 반복 가능
+이하 예시
+'''
+my_list = [1, 'a', 3, 'b', 5]
 
+#인덱싱(순서에 해당하는 값 출력)
+print(my_list[1]) #a 
+
+#슬라이싱
+print(my_list[2:4]) # [3, 'b'] 4번째는 짤림
+print(my_list[:3]) #[1, 'a', 3]
+print(my_list[3:]) #['b', 5] : 끝까지 하면 마지막 요소 출력됨
+print(my_list[::2]) #[1, 3, 5]
+print(my_list[::-1]) # 음수도 가능 [5, 'b', 3, 'a', 1]
+슬라이싱 개념 잘 모르겠음.
+start : step 
 
 ## list의 가변성 (부터 메모)
 # 변경가능 (수정,추가,삭제) vs 불변성 (수정,추가,삭제 불가)
@@ -224,10 +243,16 @@ my_set_2 = {3, 6, 9}
 #합집합
 print(my_set_1 | my_set_2) #{1,2,3,6,9}
 
+#차집합
+print(my_set_1 - my_set_2) #{1, 2}
+
+# 교집합
+print(my_set1 & my_set_2) #{3}
 
 
 '''
 <other types>
+
 
 (1) None 
 : 파이썬이 '값이 없음' 표현
@@ -236,7 +261,13 @@ print(my_set_1 | my_set_2) #{1,2,3,6,9}
 - 숫자 0, 빈 문자열 '' 과 다름. 
 (개발에 많이 사용)
 (주의) 반드시 N은 대문자
+'''
+#my_variable 에는 아직 아무 값도 할당하고 싶지 않을 때
 
+my_variable = None
+print(my_variable) #None
+
+'''
 (2) boolean
 True, False
 - 프로그램 흐름 제어할 때 사용 (on off 스위치)
@@ -250,13 +281,28 @@ is_logged_in = False
 
 print(is_active) #True
 print(is_logged_in) #False
+print(10 > 5) #True
+
 
 '''
 <파이썬 Collection>
-collection : 여러 물건 담는 '보관함'. 파이썬은 목적에 따라 다양한 종류의 컬렉션 제공.
-: str, list, tuple, range(시퀀스) / set, dict (비시퀀스)
+: 여러 물건 담는 '보관함'. 
+파이썬은 목적에 따라 다양한 종류의 컬렉션 제공.
+분류 ; str, list, tuple, range(시퀀스) / set, dict (비시퀀스)
 (주의) 표로 암기하셈
+시퀀스 3개 (순서ㅇ)
+- str : 변경 불가능, 순서o
+- list : 변경 가능, 순서o
+- tuple : 변경 불가능 , 순서o
+=============================
+비시퀀스 2개 (순서 x)
+- dict : 변경 가능, 순서x
+- set : 변경 가능, 순서 x
 
+=========================
+변경 가능 : lsit , 비시퀀스(dict, set)
+
+=========================
 <총정리 불변 vs 가변 >
 
 - 불변 
