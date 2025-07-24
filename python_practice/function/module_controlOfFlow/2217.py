@@ -30,7 +30,7 @@ rental_list = [
 for book in rental_list: # 조건판단 x, rental_list에 각 요소 순회 (동작 수행)
     if book not in list_of_book: # 조건문 (rental_list 요소가 list_of_book 안에 없으면,)
         print(f'{book}은/는 보유하고 있지 않습니다.')
-    break # 없는 책 하나라도 나오면 반복 종료
+        break # 없는 책 하나라도 나오면 반복 종료 / 위치 if문 안에 (주의)
 else: 
     print('모든 도서가 대여 가능한 상태입니다')
 
